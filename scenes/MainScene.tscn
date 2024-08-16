@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bp5dybhj0q4yx"]
+
+[ext_resource type="Texture2D" uid="uid://mbn3bf7nnf11" path="res://icon.svg" id="1_jmfme"]
+[ext_resource type="PackedScene" uid="uid://duqw54rorvbmn" path="res://scenes/Player.tscn" id="2_ht30n"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5c3ap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gbo0"]
+size = Vector2(45, 20)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-752, 84)
+scale = Vector2(26.7274, 1)
+physics_material_override = SubResource("PhysicsMaterial_5c3ap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(31.5, 37)
+shape = SubResource("RectangleShape2D_3gbo0")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(31.5, 37)
+scale = Vector2(0.351563, 0.15625)
+texture = ExtResource("1_jmfme")
+
+[node name="Player" parent="." instance=ExtResource("2_ht30n")]
+position = Vector2(24, -13)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-24, 13)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
