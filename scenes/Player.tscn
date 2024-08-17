@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://duqw54rorvbmn"]
+[gd_scene load_steps=8 format=3 uid="uid://duqw54rorvbmn"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6ocf8"]
 [ext_resource type="Texture2D" uid="uid://bwfeaqs6lc1sx" path="res://assets/wizard/slimewizard1.png" id="2_2b4vl"]
+[ext_resource type="Script" path="res://scripts/shooting_point.gd" id="2_3e4xc"]
 [ext_resource type="Texture2D" uid="uid://dpbj8u8tsyryd" path="res://assets/wand/wand.png" id="2_bemky"]
+[ext_resource type="Script" path="res://scripts/wand_pivot.gd" id="2_iop0c"]
+[ext_resource type="Script" path="res://scripts/wand.gd" id="2_mhj7s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jv3o"]
 size = Vector2(255, 203)
@@ -10,13 +13,33 @@ size = Vector2(255, 203)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_6ocf8")
 
+[node name="WandPivot" type="Marker2D" parent="."]
+position = Vector2(-4, 1)
+script = ExtResource("2_iop0c")
+
+[node name="ShootingPoint" type="Marker2D" parent="WandPivot"]
+position = Vector2(169, -16)
+script = ExtResource("2_3e4xc")
+
+[node name="RayCast2D" type="RayCast2D" parent="WandPivot/ShootingPoint"]
+target_position = Vector2(1253, -10)
+script = ExtResource("2_mhj7s")
+first_spell_colour = Color(0.2, 0.4, 0.6, 1)
+second_spell_colour = Color(0.6, 0.431373, 0.2, 1)
+
+[node name="Line2D" type="Line2D" parent="WandPivot/ShootingPoint/RayCast2D"]
+position = Vector2(3, -1)
+points = PackedVector2Array(0, 0, 347, -1)
+default_color = Color(0.2, 0.4, 0.6, 1)
+
+[node name="Wand" type="Sprite2D" parent="WandPivot"]
+position = Vector2(89, -21)
+rotation = 1.5708
+texture = ExtResource("2_bemky")
+
 [node name="Character" type="Sprite2D" parent="."]
 position = Vector2(10, -19)
 texture = ExtResource("2_2b4vl")
-
-[node name="Wand" type="Sprite2D" parent="."]
-position = Vector2(145, -40)
-texture = ExtResource("2_bemky")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(14.5, -20.5)
