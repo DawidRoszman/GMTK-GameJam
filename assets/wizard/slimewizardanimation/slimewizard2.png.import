@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boc2dwy1ewy8f"
-path="res://.godot/imported/wizard_medium.svg-830a683dd349d5ceaab56ff238a76cf9.ctex"
+uid="uid://b6r1arbvmai5b"
+path="res://.godot/imported/slimewizard2.png-06186a0cb2e55696e7fe8afac71ca508.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/wizard/Wizard SVG/wizard_medium.svg"
-dest_files=["res://.godot/imported/wizard_medium.svg-830a683dd349d5ceaab56ff238a76cf9.ctex"]
+source_file="res://assets/wizard/slimewizardanimation/slimewizard2.png"
+dest_files=["res://.godot/imported/slimewizard2.png-06186a0cb2e55696e7fe8afac71ca508.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

@@ -1,8 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://duqw54rorvbmn"]
+[gd_scene load_steps=10 format=3 uid="uid://duqw54rorvbmn"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6ocf8"]
-[ext_resource type="Texture2D" uid="uid://bwfeaqs6lc1sx" path="res://assets/wizard/slimewizard1.png" id="2_2b4vl"]
+[ext_resource type="Texture2D" uid="uid://blr80puxl6bjs" path="res://assets/wizard/slimewizardanimation/slimewizard1.png" id="2_6baba"]
 [ext_resource type="Texture2D" uid="uid://dpbj8u8tsyryd" path="res://assets/wand/wand.png" id="2_bemky"]
+[ext_resource type="Texture2D" uid="uid://b6r1arbvmai5b" path="res://assets/wizard/slimewizardanimation/slimewizard2.png" id="3_p6m2a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4fyh"]
+atlas = ExtResource("2_6baba")
+region = Rect2(0, 0, 227, 173)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hm54"]
+atlas = ExtResource("3_p6m2a")
+region = Rect2(0, 0, 218, 172)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt7la"]
+atlas = ExtResource("2_6baba")
+region = Rect2(0, 0, 227, 173)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_00j8r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4fyh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_0hm54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt7la")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jv3o"]
 size = Vector2(255, 203)
@@ -10,9 +45,13 @@ size = Vector2(255, 203)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_6ocf8")
 
-[node name="Character" type="Sprite2D" parent="."]
-position = Vector2(10, -19)
-texture = ExtResource("2_2b4vl")
+[node name="Character" type="AnimatedSprite2D" parent="."]
+position = Vector2(14, -20.5)
+scale = Vector2(1.13761, 1.1686)
+sprite_frames = SubResource("SpriteFrames_00j8r")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.288353
 
 [node name="Wand" type="Sprite2D" parent="."]
 position = Vector2(145, -40)
