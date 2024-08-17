@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmkhkpbjq1rea"
-path="res://.godot/imported/wizard_medium.png-67f8a4c74b62f58239e34f64f82e1bb8.ctex"
+uid="uid://dwbibk0slh5mk"
+path="res://.godot/imported/Blue shooting.png-bfa03c09fbb0cdb885a1ff8a61c6ed84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/wizard/wizard_medium/wizard_medium.png"
-dest_files=["res://.godot/imported/wizard_medium.png-67f8a4c74b62f58239e34f64f82e1bb8.ctex"]
+source_file="res://assets/pointers/Blue shooting.png"
+dest_files=["res://.godot/imported/Blue shooting.png-bfa03c09fbb0cdb885a1ff8a61c6ed84.ctex"]
 
 [params]
 
