@@ -5,6 +5,21 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_xlye8"]
 radius = 130.035
 
+[sub_resource type="Animation" id="Animation_fxdkp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_buawa"]
 resource_name = "spin"
 length = 2.5
@@ -23,28 +38,13 @@ tracks/0/keys = {
 "values": [0.0, 6.31809]
 }
 
-[sub_resource type="Animation" id="Animation_fxdkp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ywtfx"]
 _data = {
 "RESET": SubResource("Animation_fxdkp"),
 "spin": SubResource("Animation_buawa")
 }
 
-[node name="red" type="Node2D"]
+[node name="red" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_gy4oy")

@@ -1,77 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://duqw54rorvbmn"]
+[gd_scene load_steps=8 format=3 uid="uid://duqw54rorvbmn"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6ocf8"]
+[ext_resource type="Script" path="res://scripts/shooting_point.gd" id="2_3e4xc"]
 [ext_resource type="Texture2D" uid="uid://blr80puxl6bjs" path="res://assets/wizard/slimewizardanimation/slimewizard1.png" id="2_6baba"]
 [ext_resource type="Texture2D" uid="uid://dpbj8u8tsyryd" path="res://assets/wand/wand.png" id="2_bemky"]
-[ext_resource type="Texture2D" uid="uid://cbqdn65vemno2" path="res://assets/wizard/slimewizardanimation/slimewizardjump1.png" id="3_bmpqy"]
-[ext_resource type="Texture2D" uid="uid://b6r1arbvmai5b" path="res://assets/wizard/slimewizardanimation/slimewizard2.png" id="3_p6m2a"]
-[ext_resource type="Texture2D" uid="uid://caevsefeiartj" path="res://assets/wizard/slimewizardanimation/slimewizardjump2.png" id="4_uid1l"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e4fyh"]
-atlas = ExtResource("2_6baba")
-region = Rect2(0, 0, 227, 173)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sd6vd"]
-atlas = ExtResource("2_6baba")
-region = Rect2(0, 0, 227, 173)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b6y7b"]
-atlas = ExtResource("3_bmpqy")
-region = Rect2(0, 0, 215, 165)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uc0x5"]
-atlas = ExtResource("4_uid1l")
-region = Rect2(0, 0, 215, 165)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0hm54"]
-atlas = ExtResource("3_p6m2a")
-region = Rect2(0, 0, 218, 172)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bt7la"]
-atlas = ExtResource("2_6baba")
-region = Rect2(0, 0, 227, 173)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_00j8r"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e4fyh")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sd6vd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b6y7b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uc0x5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sd6vd")
-}],
-"loop": true,
-"name": &"jump",
-"speed": 6.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e4fyh")
-}, {
-"duration": 1.4,
-"texture": SubResource("AtlasTexture_0hm54")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bt7la")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
+[ext_resource type="Script" path="res://scripts/wand_pivot.gd" id="2_iop0c"]
+[ext_resource type="Script" path="res://scripts/wand.gd" id="2_mhj7s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jv3o"]
 size = Vector2(255, 203)
@@ -79,16 +13,33 @@ size = Vector2(255, 203)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_6ocf8")
 
-[node name="Character" type="AnimatedSprite2D" parent="."]
-position = Vector2(14, -20.5)
-scale = Vector2(1.13761, 1.1686)
-sprite_frames = SubResource("SpriteFrames_00j8r")
-animation = &"idle"
-autoplay = "idle"
+[node name="WandPivot" type="Marker2D" parent="."]
+position = Vector2(-4, 1)
+script = ExtResource("2_iop0c")
 
-[node name="Wand" type="Sprite2D" parent="."]
-position = Vector2(145, -40)
+[node name="ShootingPoint" type="Marker2D" parent="WandPivot"]
+position = Vector2(169, -16)
+script = ExtResource("2_3e4xc")
+
+[node name="RayCast2D" type="RayCast2D" parent="WandPivot/ShootingPoint"]
+target_position = Vector2(1253, -10)
+script = ExtResource("2_mhj7s")
+first_spell_colour = Color(0.2, 0.4, 0.6, 1)
+second_spell_colour = Color(0.6, 0.431373, 0.2, 1)
+
+[node name="Line2D" type="Line2D" parent="WandPivot/ShootingPoint/RayCast2D"]
+position = Vector2(3, -1)
+points = PackedVector2Array(0, 0, 347, -1)
+default_color = Color(0.2, 0.4, 0.6, 1)
+
+[node name="Wand" type="Sprite2D" parent="WandPivot"]
+position = Vector2(89, -21)
+rotation = 1.5708
 texture = ExtResource("2_bemky")
+
+[node name="Character" type="Sprite2D" parent="."]
+position = Vector2(10, -19)
+texture = ExtResource("2_6baba")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(14.5, -20.5)

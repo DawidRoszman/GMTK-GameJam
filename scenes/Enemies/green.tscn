@@ -43,13 +43,12 @@ _data = {
 "spin": SubResource("Animation_c8q7b")
 }
 
-[node name="green" type="Node2D"]
+[node name="green" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_wwuu3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_xlye8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
