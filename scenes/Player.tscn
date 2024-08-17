@@ -85,7 +85,6 @@ scale = Vector2(1.13761, 1.1686)
 sprite_frames = SubResource("SpriteFrames_00j8r")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.933253
 
 [node name="Wand" type="Sprite2D" parent="."]
 position = Vector2(145, -40)

@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://dc4vfe4u0e7ad"]
+
+[ext_resource type="Texture2D" uid="uid://bmafpj411ufwx" path="res://assets/enemies/level1/green.png" id="1_wwuu3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xlye8"]
+radius = 130.035
+
+[sub_resource type="Animation" id="Animation_4fn1k"]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_c8q7b"]
+resource_name = "spin"
+loop_mode = 2
+step = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [6.31809, 2.61799, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i8dpd"]
+_data = {
+"RESET": SubResource("Animation_4fn1k"),
+"spin": SubResource("Animation_c8q7b")
+}
+
+[node name="green" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wwuu3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_xlye8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_i8dpd")
+}
+autoplay = "spin"
