@@ -2,9 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://mbn3bf7nnf11" path="res://icon.svg" id="1_jmfme"]
 [ext_resource type="PackedScene" uid="uid://duqw54rorvbmn" path="res://scenes/Player.tscn" id="2_ht30n"]
-[ext_resource type="PackedScene" uid="uid://dc4vfe4u0e7ad" path="res://scenes/Enemies/green.tscn" id="3_68f1t"]
-[ext_resource type="PackedScene" uid="uid://7uocxh0sk70g" path="res://scenes/Enemies/orange.tscn" id="4_2p526"]
-[ext_resource type="PackedScene" uid="uid://srvbv256arqg" path="res://scenes/Enemies/red.tscn" id="5_bayqf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5c3ap"]
 

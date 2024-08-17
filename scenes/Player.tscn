@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://duqw54rorvbmn"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6ocf8"]
-[ext_resource type="Texture2D" uid="uid://bwfeaqs6lc1sx" path="res://assets/wizard/slimewizard1.png" id="2_2b4vl"]
 [ext_resource type="Script" path="res://scripts/shooting_point.gd" id="2_3e4xc"]
 [ext_resource type="Texture2D" uid="uid://dpbj8u8tsyryd" path="res://assets/wand/wand.png" id="2_bemky"]
 [ext_resource type="Script" path="res://scripts/wand_pivot.gd" id="2_iop0c"]
 [ext_resource type="Script" path="res://scripts/wand.gd" id="2_mhj7s"]
+[ext_resource type="Texture2D" uid="uid://blr80puxl6bjs" path="res://assets/wizard/slimewizardanimation/slimewizard1.png" id="6_gpmxc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jv3o"]
 size = Vector2(255, 203)
@@ -39,7 +39,7 @@ texture = ExtResource("2_bemky")
 
 [node name="Character" type="Sprite2D" parent="."]
 position = Vector2(10, -19)
-texture = ExtResource("2_2b4vl")
+texture = ExtResource("6_gpmxc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(14.5, -20.5)
