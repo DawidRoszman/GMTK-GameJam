@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmkhkpbjq1rea"
-path="res://.godot/imported/wizard_medium.png-67f8a4c74b62f58239e34f64f82e1bb8.ctex"
+uid="uid://brsjcydddyncj"
+path="res://.godot/imported/orange_shooting.png-bd580f292e3105269be0dc39b67df8d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/wizard/wizard_medium/wizard_medium.png"
-dest_files=["res://.godot/imported/wizard_medium.png-67f8a4c74b62f58239e34f64f82e1bb8.ctex"]
+source_file="res://assets/pointers/orange_shooting.png"
+dest_files=["res://.godot/imported/orange_shooting.png-bd580f292e3105269be0dc39b67df8d1.ctex"]
 
 [params]
 

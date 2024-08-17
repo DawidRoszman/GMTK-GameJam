@@ -1,13 +1,27 @@
-[gd_scene load_steps=10 format=3 uid="uid://duqw54rorvbmn"]
+[gd_scene load_steps=15 format=3 uid="uid://duqw54rorvbmn"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6ocf8"]
 [ext_resource type="Texture2D" uid="uid://blr80puxl6bjs" path="res://assets/wizard/slimewizardanimation/slimewizard1.png" id="2_6baba"]
 [ext_resource type="Texture2D" uid="uid://dpbj8u8tsyryd" path="res://assets/wand/wand.png" id="2_bemky"]
+[ext_resource type="Texture2D" uid="uid://cbqdn65vemno2" path="res://assets/wizard/slimewizardanimation/slimewizardjump1.png" id="3_bmpqy"]
 [ext_resource type="Texture2D" uid="uid://b6r1arbvmai5b" path="res://assets/wizard/slimewizardanimation/slimewizard2.png" id="3_p6m2a"]
+[ext_resource type="Texture2D" uid="uid://caevsefeiartj" path="res://assets/wizard/slimewizardanimation/slimewizardjump2.png" id="4_uid1l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e4fyh"]
 atlas = ExtResource("2_6baba")
 region = Rect2(0, 0, 227, 173)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sd6vd"]
+atlas = ExtResource("2_6baba")
+region = Rect2(0, 0, 227, 173)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6y7b"]
+atlas = ExtResource("3_bmpqy")
+region = Rect2(0, 0, 215, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uc0x5"]
+atlas = ExtResource("4_uid1l")
+region = Rect2(0, 0, 215, 165)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0hm54"]
 atlas = ExtResource("3_p6m2a")
@@ -24,10 +38,30 @@ animations = [{
 "texture": SubResource("AtlasTexture_e4fyh")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sd6vd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6y7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uc0x5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sd6vd")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4fyh")
+}, {
 "duration": 1.4,
 "texture": SubResource("AtlasTexture_0hm54")
 }, {
@@ -49,9 +83,9 @@ script = ExtResource("1_6ocf8")
 position = Vector2(14, -20.5)
 scale = Vector2(1.13761, 1.1686)
 sprite_frames = SubResource("SpriteFrames_00j8r")
-animation = &"walk"
-autoplay = "walk"
-frame_progress = 0.288353
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.933253
 
 [node name="Wand" type="Sprite2D" parent="."]
 position = Vector2(145, -40)
