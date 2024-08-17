@@ -73,12 +73,26 @@ animations = [{
 "speed": 5.0
 }]
 
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jv3o"]
 size = Vector2(255, 203)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_6ocf8")
 
+[node name="WandPivot" type="Marker2D" parent="."]
+position = Vector2(-4, 1)
+script = ExtResource("2_iop0c")
+
+[node name="ShootingPoint" type="Marker2D" parent="WandPivot"]
+position = Vector2(169, -16)
+script = ExtResource("2_3e4xc")
+
+[node name="RayCast2D" type="RayCast2D" parent="WandPivot/ShootingPoint"]
+target_position = Vector2(1253, -10)
+script = ExtResource("2_mhj7s")
+first_spell_colour = Color(0.2, 0.4, 0.6, 1)
+second_spell_colour = Color(0.6, 0.431373, 0.2, 1)
 [node name="Character" type="AnimatedSprite2D" parent="."]
 position = Vector2(14, -20.5)
 scale = Vector2(1.13761, 1.1686)
@@ -86,9 +100,20 @@ sprite_frames = SubResource("SpriteFrames_00j8r")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="Wand" type="Sprite2D" parent="."]
-position = Vector2(145, -40)
+
+[node name="Line2D" type="Line2D" parent="WandPivot/ShootingPoint/RayCast2D"]
+position = Vector2(3, -1)
+points = PackedVector2Array(0, 0, 347, -1)
+default_color = Color(0.2, 0.4, 0.6, 1)
+
+[node name="Wand" type="Sprite2D" parent="WandPivot"]
+position = Vector2(89, -21)
+rotation = 1.5708
 texture = ExtResource("2_bemky")
+
+[node name="Character" type="Sprite2D" parent="."]
+position = Vector2(10, -19)
+texture = ExtResource("6_gpmxc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(14.5, -20.5)
