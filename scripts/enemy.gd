@@ -1,7 +1,7 @@
 class_name Enemy
 extends RigidBody2D
 
-const speed = 5
+const speed = 10
 var is_chasing_player = false
 var player = null
 
@@ -27,5 +27,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	is_chasing_player = true
 
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_body_exited(_body: Node2D) -> void:
+	player = null
 	is_chasing_player = false
+
+
+func _on_body_entered(body: Node) -> void:
+	print(body)
+	if body.is_in_group("player"):
+		get_tree().reload_current_scene()

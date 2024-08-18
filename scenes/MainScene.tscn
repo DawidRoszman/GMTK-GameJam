@@ -1,20 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://bp5dybhj0q4yx"]
+[gd_scene load_steps=11 format=3 uid="uid://bp5dybhj0q4yx"]
 
-[ext_resource type="PackedScene" uid="uid://bipnl6q0p84pj" path="res://scenes/microbackground.tscn" id="1_4jn5c"]
+[ext_resource type="Shader" path="res://shaders/microbacground.gdshader" id="1_7jtnb"]
+[ext_resource type="Texture2D" uid="uid://d3lyqkc60nn3g" path="res://assets/map/micro_background.png" id="1_ea6l3"]
 [ext_resource type="Texture2D" uid="uid://mbn3bf7nnf11" path="res://icon.svg" id="1_jmfme"]
 [ext_resource type="PackedScene" uid="uid://duqw54rorvbmn" path="res://scenes/Player.tscn" id="2_ht30n"]
 [ext_resource type="PackedScene" uid="uid://dc4vfe4u0e7ad" path="res://scenes/Enemies/green.tscn" id="3_68f1t"]
 [ext_resource type="PackedScene" uid="uid://7uocxh0sk70g" path="res://scenes/Enemies/orange.tscn" id="4_2p526"]
 [ext_resource type="PackedScene" uid="uid://srvbv256arqg" path="res://scenes/Enemies/red.tscn" id="5_bayqf"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hafdg"]
+shader = ExtResource("1_7jtnb")
+shader_parameter/scale = 1.0
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5c3ap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gbo0"]
-size = Vector2(236.424, 32)
+size = Vector2(45, 20)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="microbackground" parent="." instance=ExtResource("1_4jn5c")]
+[node name="MicroBackground" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_hafdg")
+position = Vector2(0, -1)
+scale = Vector2(2.00278, 2.00278)
+texture = ExtResource("1_ea6l3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-752, 84)
@@ -22,7 +31,7 @@ scale = Vector2(26.7274, 1)
 physics_material_override = SubResource("PhysicsMaterial_5c3ap")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(56.2531, 43)
+position = Vector2(31.5, 37)
 shape = SubResource("RectangleShape2D_3gbo0")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
@@ -42,10 +51,10 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="green" parent="." instance=ExtResource("3_68f1t")]
-position = Vector2(543, -343)
+position = Vector2(1591, -590)
 
 [node name="orange" parent="." instance=ExtResource("4_2p526")]
-position = Vector2(-432, -289)
+position = Vector2(-1523, -621)
 
 [node name="red" parent="." instance=ExtResource("5_bayqf")]
 position = Vector2(806, -35)

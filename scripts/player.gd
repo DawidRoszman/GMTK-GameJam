@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 
 const SPEED = 800
-const JUMP_POWER = -2500
+const JUMP_POWER = -3400
 
 @export var max_rotation = -160
 @export var min_rotation = -240
@@ -25,12 +25,7 @@ func _physics_process(delta: float) -> void:
 			#$WandPivot/Wand.flip_v = false
 			$Character.flip_h = false
 		if input_dir == Vector2.LEFT:
-			#max_rotation = -140
-			#min_rotation = -230
-			#$WandPivot/ShootingPoint.position = Vector2(120, 45)
-			#$WandPivot/Wand.flip_v = true
 			$Character.flip_h = true
-			
 		accelerate(input_dir, delta)
 	else:
 		add_friction(delta)

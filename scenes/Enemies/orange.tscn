@@ -46,6 +46,9 @@ _data = {
 }
 
 [node name="orange" type="RigidBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 7
+mass = 30.0
 gravity_scale = 0.0
 script = ExtResource("1_dej75")
 
