@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bp5dybhj0q4yx"]
+[gd_scene load_steps=10 format=3 uid="uid://bp5dybhj0q4yx"]
 
 [ext_resource type="PackedScene" uid="uid://bipnl6q0p84pj" path="res://scenes/microbackground.tscn" id="1_4jn5c"]
 [ext_resource type="Texture2D" uid="uid://mbn3bf7nnf11" path="res://icon.svg" id="1_jmfme"]
 [ext_resource type="PackedScene" uid="uid://duqw54rorvbmn" path="res://scenes/Player.tscn" id="2_ht30n"]
-[ext_resource type="PackedScene" uid="uid://dc4vfe4u0e7ad" path="res://scenes/Enemies/green.tscn" id="3_68f1t"]
-[ext_resource type="PackedScene" uid="uid://7uocxh0sk70g" path="res://scenes/Enemies/orange.tscn" id="4_2p526"]
-[ext_resource type="PackedScene" uid="uid://srvbv256arqg" path="res://scenes/Enemies/red.tscn" id="5_bayqf"]
+[ext_resource type="PackedScene" uid="uid://7uocxh0sk70g" path="res://scenes/Enemies/enemy.tscn" id="4_2p526"]
+[ext_resource type="Texture2D" uid="uid://dhp5m3ii56mlf" path="res://assets/enemies/level1/orange.png" id="5_dui82"]
+[ext_resource type="Texture2D" uid="uid://qjr622hmlp3d" path="res://assets/enemies/level1/red.png" id="5_jwiu8"]
+[ext_resource type="Texture2D" uid="uid://bmafpj411ufwx" path="res://assets/enemies/level1/green.png" id="6_1sd4s"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5c3ap"]
 
@@ -41,11 +42,14 @@ rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="green" parent="." instance=ExtResource("3_68f1t")]
-position = Vector2(1591, -590)
-
 [node name="orange" parent="." instance=ExtResource("4_2p526")]
-position = Vector2(-1523, -621)
+position = Vector2(-312, -381)
+sprite = ExtResource("5_dui82")
 
-[node name="red" parent="." instance=ExtResource("5_bayqf")]
-position = Vector2(806, -35)
+[node name="orange2" parent="." instance=ExtResource("4_2p526")]
+position = Vector2(505, -356)
+sprite = ExtResource("5_jwiu8")
+
+[node name="orange3" parent="." instance=ExtResource("4_2p526")]
+position = Vector2(137, -693)
+sprite = ExtResource("6_1sd4s")

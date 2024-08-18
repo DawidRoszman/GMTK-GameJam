@@ -46,7 +46,7 @@ func jump():
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_POWER
 	if Input.is_action_just_released("jump") and velocity.y < 0:
-		velocity.y  = JUMP_POWER / 16
+		velocity.y  = JUMP_POWER / 4.0
 
 func get_min_rotation():
 	return min_rotation
