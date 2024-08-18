@@ -9,9 +9,10 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1cr1j"]
 radius = 45.9867
-height = 157.906
+height = 148.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+position = Vector2(-33, -21)
 script = ExtResource("1_6ocf8")
 
 [node name="WandPivot" type="Marker2D" parent="."]

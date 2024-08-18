@@ -1,5 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bp5dybhj0q4yx"]
+[gd_scene load_steps=14 format=3 uid="uid://bp5dybhj0q4yx"]
 
+[ext_resource type="Shader" path="res://shaders/microbacground.gdshader" id="1_7jtnb"]
+[ext_resource type="Texture2D" uid="uid://d3lyqkc60nn3g" path="res://assets/map/micro_background.png" id="1_ea6l3"]
 [ext_resource type="Texture2D" uid="uid://mbn3bf7nnf11" path="res://icon.svg" id="1_jmfme"]
 [ext_resource type="PackedScene" uid="uid://duqw54rorvbmn" path="res://scenes/Player.tscn" id="2_ht30n"]
 [ext_resource type="PackedScene" uid="uid://dc4vfe4u0e7ad" path="res://scenes/Enemies/green.tscn" id="3_68f1t"]
@@ -7,10 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://srvbv256arqg" path="res://scenes/Enemies/red.tscn" id="5_bayqf"]
 [ext_resource type="Texture2D" uid="uid://d3cjngpmon804" path="res://assets/map/tilesbeige.png" id="6_abyiv"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5c3ap"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gbo0"]
-size = Vector2(45, 20)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hafdg"]
+shader = ExtResource("1_7jtnb")
+shader_parameter/scale = 1.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_by45l"]
 texture = ExtResource("6_abyiv")
@@ -212,7 +213,24 @@ tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_by45l")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5c3ap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gbo0"]
+size = Vector2(45, 20)
+
 [node name="Node2D" type="Node2D"]
+
+[node name="MicroBackground" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_hafdg")
+position = Vector2(0, -1)
+scale = Vector2(2.00278, 2.00278)
+texture = ExtResource("1_ea6l3")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_8158w")
+rendering_quadrant_size = 128
+format = 2
+layer_0/tile_data = PackedInt32Array(196605, 1, 1, 196604, 1, 0, 196603, 1, 0, 196602, 1, 2, 262153, 1, 1, 262152, 1, 0, 262151, 1, 0, 262150, 1, 0, 262149, 1, 0, 262148, 1, 2, -131086, 1, 2, -131085, 1, 0, -131084, 1, 0, -131083, 1, 0, -131082, 1, 0, -131081, 1, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-752, 84)
@@ -247,9 +265,3 @@ position = Vector2(-432, -289)
 
 [node name="red" parent="." instance=ExtResource("5_bayqf")]
 position = Vector2(806, -35)
-
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_8158w")
-rendering_quadrant_size = 128
-format = 2
-layer_0/tile_data = PackedInt32Array(196605, 1, 1, 196604, 1, 0, 196603, 1, 0, 196602, 1, 2)
