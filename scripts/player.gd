@@ -12,22 +12,20 @@ const ACCELERATION = 2500
 const FRICTION = 2300
 
 const GRAVITY = 8000
-
+@onready var animated_sprite = $Character/AnimatedSprite2D #wizard for the animation
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
+		animated_sprite.play("jump") #wizard supposed to jump
 	var input_dir = input()
 	if input_dir != Vector2.ZERO:
 		if input_dir == Vector2.RIGHT:
-			#max_rotation = 45
-			#min_rotation = -45
-			#$WandPivot/ShootingPoint.position = Vector2(147, -115)
-			#$WandPivot/Wand.flip_v = false
 			$Character.flip_h = false
 		if input_dir == Vector2.LEFT:
 			$Character.flip_h = true
 		accelerate(input_dir, delta)
 	else:
+		animated_sprite.play("walk") #wizard supposed to walk
 		add_friction(delta)
 	player_movement()
 	jump()
