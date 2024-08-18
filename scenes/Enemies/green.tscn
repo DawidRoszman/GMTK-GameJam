@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dc4vfe4u0e7ad"]
+[gd_scene load_steps=7 format=3 uid="uid://dc4vfe4u0e7ad"]
 
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_3qmjg"]
 [ext_resource type="Texture2D" uid="uid://bmafpj411ufwx" path="res://assets/enemies/level1/green.png" id="1_wwuu3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xlye8"]
@@ -43,7 +44,8 @@ _data = {
 "spin": SubResource("Animation_c8q7b")
 }
 
-[node name="green" type="StaticBody2D"]
+[node name="green" type="RigidBody2D" groups=["enemy"]]
+script = ExtResource("1_3qmjg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_wwuu3")

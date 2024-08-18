@@ -10,7 +10,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jv3o"]
 size = Vector2(255, 203)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_6ocf8")
 
 [node name="WandPivot" type="Marker2D" parent="."]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://7uocxh0sk70g"]
+[gd_scene load_steps=7 format=3 uid="uid://7uocxh0sk70g"]
 
 [ext_resource type="Texture2D" uid="uid://dhp5m3ii56mlf" path="res://assets/enemies/level1/orange.png" id="1_bjbvt"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_dej75"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xlye8"]
 radius = 130.035
@@ -44,7 +45,9 @@ _data = {
 "spin": SubResource("Animation_buawa")
 }
 
-[node name="orange" type="StaticBody2D"]
+[node name="orange" type="RigidBody2D" groups=["enemy"]]
+gravity_scale = 0.0
+script = ExtResource("1_dej75")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_bjbvt")

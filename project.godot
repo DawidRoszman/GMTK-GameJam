@@ -21,6 +21,11 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+enemy=""
+player=""
+
 [input]
 
 move_right={

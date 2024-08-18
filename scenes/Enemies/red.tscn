@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://srvbv256arqg"]
+[gd_scene load_steps=7 format=3 uid="uid://srvbv256arqg"]
 
 [ext_resource type="Texture2D" uid="uid://qjr622hmlp3d" path="res://assets/enemies/level1/red.png" id="1_gy4oy"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_r4ows"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xlye8"]
 radius = 130.035
@@ -44,7 +45,8 @@ _data = {
 "spin": SubResource("Animation_buawa")
 }
 
-[node name="red" type="StaticBody2D"]
+[node name="red" type="RigidBody2D" groups=["enemy"]]
+script = ExtResource("1_r4ows")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_gy4oy")

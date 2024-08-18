@@ -27,10 +27,15 @@ func _physics_process(delta: float) -> void:
 	var cast_point = Vector2.ZERO
 	force_raycast_update()
 	if is_colliding():
+		var other = get_collider()
+		if other.is_in_group("player"):
+			return
+		if not other.is_in_group("enemy"):
+			return
 		if is_using_first_spell:
-			get_collider().scale += Vector2(scaling_multiplier*delta,scaling_multiplier*delta)
+			other.increase(Vector2(scaling_multiplier*delta,scaling_multiplier*delta))
 		else:
-			get_collider().scale -= Vector2(scaling_multiplier*delta,scaling_multiplier*delta)
+			other.decrease(Vector2(scaling_multiplier*delta,scaling_multiplier*delta))
 		cast_point = to_local(get_collision_point())
 	
 	$Line2D.points[1] = cast_point
