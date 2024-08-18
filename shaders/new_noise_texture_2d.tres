@@ -1,12 +1,11 @@
 [gd_resource type="NoiseTexture2D" load_steps=2 format=3 uid="uid://jsy3lny0x475"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_cobmw"]
-noise_type = 2
-frequency = 0.0382
+frequency = 0.0056
 
 [resource]
-width = 3840
-height = 2160
+width = 1920
+height = 1080
 seamless = true
-seamless_blend_skirt = 0.47
+normalize = false
 noise = SubResource("FastNoiseLite_cobmw")

@@ -1,20 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://bipnl6q0p84pj"]
+[gd_scene load_steps=5 format=3 uid="uid://bipnl6q0p84pj"]
 
 [ext_resource type="Shader" path="res://shaders/noise.gdshader" id="1_krgbm"]
 [ext_resource type="Texture2D" uid="uid://d3lyqkc60nn3g" path="res://assets/map/micro_background.png" id="2_o5jp6"]
 [ext_resource type="Texture2D" uid="uid://jsy3lny0x475" path="res://shaders/new_noise_texture_2d.tres" id="3_yba5v"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2lmtm"]
-width = 3840
-height = 2164
-seamless = true
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1bu0d"]
 shader = ExtResource("1_krgbm")
-shader_parameter/scroll1 = Vector2(0.03, 0.03)
-shader_parameter/scroll2 = Vector2(0.03, 0.03)
+shader_parameter/scroll1 = Vector2(0.02, 0.05)
+shader_parameter/scroll2 = Vector2(0.02, 0.05)
 shader_parameter/distortion_strength = 0.2
-shader_parameter/noise1 = SubResource("NoiseTexture2D_2lmtm")
+shader_parameter/noise1 = ExtResource("3_yba5v")
 shader_parameter/noise2 = ExtResource("3_yba5v")
 shader_parameter/SCREEN_TEXTURE = ExtResource("2_o5jp6")
 
