@@ -5,7 +5,8 @@ extends RigidBody2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 func _ready() -> void:
-	sprite_2d.texture = sprite
+	if sprite != null:
+		sprite_2d.texture = sprite
 
 func increase(multiplier: Vector2) -> void:
 	if scale > Vector2(2,2):
