@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://wsaqpw48bd7y" path="res://assets/map/hut.png" id="2_yga20"]
 [ext_resource type="PackedScene" uid="uid://7uocxh0sk70g" path="res://scenes/Enemies/enemy.tscn" id="4_2p526"]
 [ext_resource type="PackedScene" uid="uid://304rqy5cqsex" path="res://scenes/killzone.tscn" id="6_iaylr"]
-[ext_resource type="PackedScene" uid="uid://cp8yiahgff3ac" path="res://scenes/spikes.tscn" id="7_mhsts"]
+[ext_resource type="PackedScene" uid="uid://bp1mxxvh1g5q" path="res://scenes/spikes.tscn" id="7_mhsts"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -21,14 +21,34 @@ texture = ExtResource("2_yga20")
 
 [node name="microbackground" parent="." instance=ExtResource("1_4jn5c")]
 
-[node name="enemy" parent="." instance=ExtResource("4_2p526")]
+[node name="enemies" type="Node" parent="."]
+
+[node name="enemy3" parent="enemies" instance=ExtResource("4_2p526")]
+position = Vector2(2970, -653)
+
+[node name="enemy2" parent="enemies" instance=ExtResource("4_2p526")]
+position = Vector2(1669, -195)
+
+[node name="enemy6" parent="enemies" instance=ExtResource("4_2p526")]
+position = Vector2(9059, -495)
+
+[node name="enemy5" parent="enemies" instance=ExtResource("4_2p526")]
+position = Vector2(7560, -836)
+
+[node name="enemy9" parent="enemies" instance=ExtResource("4_2p526")]
+position = Vector2(12923, -2389)
+
+[node name="enemy7" parent="enemies" instance=ExtResource("4_2p526")]
+position = Vector2(10641, -1981)
+
+[node name="enemy8" parent="enemies" instance=ExtResource("4_2p526")]
+position = Vector2(12319, -3545)
+
+[node name="enemy" parent="enemies" instance=ExtResource("4_2p526")]
 position = Vector2(688, -624)
 
-[node name="enemy2" parent="." instance=ExtResource("4_2p526")]
-position = Vector2(1339, 368)
-
-[node name="enemy3" parent="." instance=ExtResource("4_2p526")]
-position = Vector2(2628, -108)
+[node name="enemy4" parent="enemies" instance=ExtResource("4_2p526")]
+position = Vector2(5668, -156)
 
 [node name="Player" parent="." instance=ExtResource("2_ht30n")]
 position = Vector2(-190, 29)
@@ -44,5 +64,49 @@ drag_vertical_enabled = true
 [node name="Killzone" parent="." instance=ExtResource("6_iaylr")]
 collision_mask = 2
 
-[node name="Spikes" parent="." instance=ExtResource("7_mhsts")]
-position = Vector2(1090, 471)
+[node name="spikes" type="Node" parent="."]
+
+[node name="Spikes" parent="spikes" instance=ExtResource("7_mhsts")]
+position = Vector2(1479, 516)
+
+[node name="Spikes2" parent="spikes" instance=ExtResource("7_mhsts")]
+position = Vector2(2894, 132)
+
+[node name="Spikes3" parent="spikes" instance=ExtResource("7_mhsts")]
+position = Vector2(3020, 131)
+
+[node name="Spikes13" parent="spikes" instance=ExtResource("7_mhsts")]
+position = Vector2(4958, 513)
+
+[node name="Spikes14" parent="spikes" instance=ExtResource("7_mhsts")]
+position = Vector2(5592, 516)
+
+[node name="Spikes15" parent="spikes" instance=ExtResource("7_mhsts")]
+position = Vector2(6207, 513)
+
+[node name="Spikes4" parent="spikes" instance=ExtResource("7_mhsts")]
+position = Vector2(2769, 133)
+
+[node name="Spikes5" parent="spikes" instance=ExtResource("7_mhsts")]
+position = Vector2(10108, -124)
+
+[node name="Spikes6" parent="spikes" instance=ExtResource("7_mhsts")]
+position = Vector2(9981, -124)
+
+[node name="Spikes7" parent="spikes" instance=ExtResource("7_mhsts")]
+position = Vector2(10182, -508)
+
+[node name="Spikes8" parent="spikes" instance=ExtResource("7_mhsts")]
+position = Vector2(10524, -892)
+
+[node name="Spikes9" parent="spikes" instance=ExtResource("7_mhsts")]
+position = Vector2(10888, -1278)
+
+[node name="Spikes10" parent="spikes" instance=ExtResource("7_mhsts")]
+position = Vector2(11522, -1662)
+
+[node name="Spikes11" parent="spikes" instance=ExtResource("7_mhsts")]
+position = Vector2(11786, -2046)
+
+[node name="Spikes12" parent="spikes" instance=ExtResource("7_mhsts")]
+position = Vector2(12454, -2430)
