@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://bp5dybhj0q4yx"]
+[gd_scene load_steps=8 format=4 uid="uid://bp5dybhj0q4yx"]
 
 [ext_resource type="PackedScene" uid="uid://bipnl6q0p84pj" path="res://scenes/microbackground.tscn" id="1_4jn5c"]
 [ext_resource type="TileSet" uid="uid://dkstcqx8we5bi" path="res://tiles/Tileset.tres" id="1_j02ys"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://wsaqpw48bd7y" path="res://assets/map/hut.png" id="2_yga20"]
 [ext_resource type="PackedScene" uid="uid://7uocxh0sk70g" path="res://scenes/Enemies/enemy.tscn" id="4_2p526"]
 [ext_resource type="PackedScene" uid="uid://304rqy5cqsex" path="res://scenes/killzone.tscn" id="6_iaylr"]
+[ext_resource type="PackedScene" uid="uid://cp8yiahgff3ac" path="res://scenes/spikes.tscn" id="7_mhsts"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -41,4 +42,7 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="Killzone" parent="." instance=ExtResource("6_iaylr")]
-collision_mask = 3
+collision_mask = 2
+
+[node name="Spikes" parent="." instance=ExtResource("7_mhsts")]
+position = Vector2(1090, 471)
