@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bipnl6q0p84pj"]
+
+[ext_resource type="Shader" path="res://shaders/noise.gdshader" id="1_krgbm"]
+[ext_resource type="Texture2D" uid="uid://d3lyqkc60nn3g" path="res://assets/map/micro_background.png" id="2_o5jp6"]
+[ext_resource type="Texture2D" uid="uid://jsy3lny0x475" path="res://shaders/new_noise_texture_2d.tres" id="3_yba5v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bu0d"]
+shader = ExtResource("1_krgbm")
+shader_parameter/scroll1 = Vector2(0.04, 0.06)
+shader_parameter/scroll2 = Vector2(0.05, 0.02)
+shader_parameter/distortion_strength = 0.2
+shader_parameter/noise1 = ExtResource("3_yba5v")
+shader_parameter/noise2 = ExtResource("3_yba5v")
+shader_parameter/SCREEN_TEXTURE = ExtResource("2_o5jp6")
+
+[node name="microbackground" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_limit_begin = Vector2(1, 1)
+scroll_limit_end = Vector2(2, 2)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-1102, -390)
+motion_mirroring = Vector2(3840, 2160)
+
+[node name="MicroBackground2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+material = SubResource("ShaderMaterial_1bu0d")
+position = Vector2(805, 201)
+scale = Vector2(2.3651, 2.64213)
+texture = ExtResource("2_o5jp6")

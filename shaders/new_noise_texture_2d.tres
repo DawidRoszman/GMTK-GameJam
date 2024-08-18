@@ -1,0 +1,9 @@
+[gd_resource type="NoiseTexture2D" load_steps=2 format=3 uid="uid://jsy3lny0x475"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cobmw"]
+noise_type = 2
+
+[resource]
+width = 1920
+height = 1080
+noise = SubResource("FastNoiseLite_cobmw")

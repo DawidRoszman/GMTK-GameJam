@@ -1,14 +1,21 @@
 shader_type canvas_item;
 
-void vertex() {
-	// Called for every vertex the material is visible on.
+uniform float progress = 0.5;
+uniform float freq = 2.5;
+uniform float amp = 0.1;
+uniform float speed = 1.5;
+
+uniform vec4 backgroundColor: source_color;
+uniform vec4 waveColor: source_color;
+
+vec4 wave(vec2 uv){
+	float sinus = sin( (uv.x + TIME * speed) * freq) * amp;
+	return waveColor * step(1.0 - sinus - progress , uv.y );
 }
+
 
 void fragment() {
-	// Called for every pixel the material is visible on.
+	vec4 wave = wave(UV);
+	COLOR.rgb = mix (backgroundColor, wave, wave.a).rgb;
+	
 }
-
-//void light() {
-	// Called for every pixel for every light affecting the CanvasItem.
-	// Uncomment to replace the default light processing function with this one.
-//}
