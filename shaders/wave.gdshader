@@ -17,5 +17,5 @@ vec4 wave(vec2 uv){
 void fragment() {
 	vec4 wave = wave(UV);
 	COLOR.rgb = mix (backgroundColor, wave, wave.a).rgb;
-	
+
 }
