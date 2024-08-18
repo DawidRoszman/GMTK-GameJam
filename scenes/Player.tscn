@@ -7,8 +7,9 @@
 [ext_resource type="Script" path="res://scripts/wand_pivot.gd" id="2_iop0c"]
 [ext_resource type="Script" path="res://scripts/wand.gd" id="2_mhj7s"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jv3o"]
-size = Vector2(255, 203)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1cr1j"]
+radius = 45.9867
+height = 157.906
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_6ocf8")
@@ -42,5 +43,6 @@ position = Vector2(10, -19)
 texture = ExtResource("2_6baba")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(14.5, -20.5)
-shape = SubResource("RectangleShape2D_4jv3o")
+position = Vector2(33, 20)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_1cr1j")
