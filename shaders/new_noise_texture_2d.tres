@@ -2,8 +2,11 @@
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_cobmw"]
 noise_type = 2
+frequency = 0.0382
 
 [resource]
-width = 1920
-height = 1080
+width = 3840
+height = 2160
+seamless = true
+seamless_blend_skirt = 0.47
 noise = SubResource("FastNoiseLite_cobmw")
