@@ -7,6 +7,7 @@ var is_using_first_spell = true
 @export var second_spell_colour : Color
 
 func _ready() -> void:
+	$Line2D.default_color = first_spell_colour
 	set_physics_process(false)
 	$Line2D.points[1] = Vector2.ZERO
 
@@ -37,6 +38,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			other.decrease(Vector2(scaling_multiplier*delta,scaling_multiplier*delta))
 		cast_point = to_local(get_collision_point())
+		print(cast_point)
 	
 	$Line2D.points[1] = cast_point
 

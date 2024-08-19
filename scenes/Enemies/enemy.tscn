@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://7uocxh0sk70g"]
+[gd_scene load_steps=13 format=3 uid="uid://7uocxh0sk70g"]
 
 [ext_resource type="Texture2D" uid="uid://dhp5m3ii56mlf" path="res://assets/enemies/level1/orange.png" id="1_bjbvt"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_dej75"]
@@ -138,11 +138,12 @@ scale_curve = SubResource("CurveTexture_4di54")
 hue_variation_min = -1.0
 hue_variation_max = 1.0
 
-[node name="enemy" type="RigidBody2D" groups=["enemy"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_m6r5o"]
+radius = 135.059
+
+[node name="enemy" type="StaticBody2D" groups=["enemy"]]
 collision_layer = 4
 collision_mask = 7
-mass = 30.0
-gravity_scale = 0.0
 script = ExtResource("1_dej75")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -164,4 +165,11 @@ texture = ExtResource("3_1buuv")
 one_shot = true
 explosiveness = 1.0
 
-[connection signal="finished" from="GPUParticles2D" to="." method="_on_gpu_particles_2d_finished"]
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_m6r5o")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

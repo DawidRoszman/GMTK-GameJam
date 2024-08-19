@@ -1,5 +1,5 @@
 class_name Enemy
-extends RigidBody2D
+extends StaticBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var sprite : Texture2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -23,7 +23,6 @@ func decrease(multiplier: Vector2) -> void:
 func die():
 	queue_free()
 
-func _on_body_entered(body: Node) -> void:
-	print(body)
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		get_tree().reload_current_scene()

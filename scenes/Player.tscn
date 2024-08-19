@@ -58,7 +58,7 @@ height = 148.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_6ocf8")
 
 [node name="WandPivot" type="Marker2D" parent="."]
@@ -77,12 +77,10 @@ first_spell_colour = Color(0.2, 0.4, 0.6, 1)
 second_spell_colour = Color(0.6, 0.431373, 0.2, 1)
 
 [node name="Line2D" type="Line2D" parent="WandPivot/ShootingPoint/RayCast2D"]
-position = Vector2(16.3899, -1.96702)
+position = Vector2(41, -2)
 scale = Vector2(1.20438, 0.065963)
-points = PackedVector2Array(0, 0, 144.505, -0.416443, 347, -1)
-width = 75.3
-default_color = Color(0.2, 0.4, 0.6, 1)
-texture_mode = 1
+points = PackedVector2Array(0, 0, 0, 0)
+width = 150.0
 end_cap_mode = 2
 
 [node name="Wand" type="Sprite2D" parent="WandPivot"]

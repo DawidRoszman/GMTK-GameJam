@@ -56,7 +56,6 @@ sprite = ExtResource("6_otcwy")
 
 [node name="enemy4" parent="enemies" instance=ExtResource("4_2p526")]
 position = Vector2(5268, 354)
-scale = Vector2(1, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_ht30n")]
 position = Vector2(-190, 29)
