@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://duqw54rorvbmn"]
+[gd_scene load_steps=12 format=3 uid="uid://duqw54rorvbmn"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6ocf8"]
 [ext_resource type="Script" path="res://scripts/shooting_point.gd" id="2_3e4xc"]
@@ -6,34 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dpbj8u8tsyryd" path="res://assets/wand/wand.png" id="2_bemky"]
 [ext_resource type="Script" path="res://scripts/wand_pivot.gd" id="2_iop0c"]
 [ext_resource type="Script" path="res://scripts/wand.gd" id="2_mhj7s"]
-[ext_resource type="Texture2D" uid="uid://v3atb8vun30f" path="res://assets/pointers/glowing_circle.png" id="5_ieb2m"]
 [ext_resource type="Texture2D" uid="uid://cbqdn65vemno2" path="res://assets/wizard/slimewizardanimation/slimewizardjump1.png" id="7_frwpb"]
 [ext_resource type="Texture2D" uid="uid://caevsefeiartj" path="res://assets/wizard/slimewizardanimation/slimewizardjump2.png" id="8_popxj"]
 [ext_resource type="Texture2D" uid="uid://b6r1arbvmai5b" path="res://assets/wizard/slimewizardanimation/slimewizard2.png" id="9_d8vcy"]
-
-[sub_resource type="Gradient" id="Gradient_dm03j"]
-colors = PackedColorArray(0.2, 0.4, 0.6, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_3u3vj"]
-gradient = SubResource("Gradient_dm03j")
-
-[sub_resource type="Curve" id="Curve_kifnb"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.493333, 1), 0.0, 0.0, 0, 0, Vector2(0.986667, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_f4s2g"]
-curve = SubResource("Curve_kifnb")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_clhyh"]
-particle_flag_disable_z = true
-initial_velocity_min = 120.0
-initial_velocity_max = 120.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.0
-scale_max = 0.5
-scale_curve = SubResource("CurveTexture_f4s2g")
-color = Color(0.793281, 0.875561, 0.96488, 1)
-color_ramp = SubResource("GradientTexture1D_3u3vj")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hm7n3"]
 animations = [{
@@ -102,17 +77,13 @@ first_spell_colour = Color(0.2, 0.4, 0.6, 1)
 second_spell_colour = Color(0.6, 0.431373, 0.2, 1)
 
 [node name="Line2D" type="Line2D" parent="WandPivot/ShootingPoint/RayCast2D"]
-position = Vector2(3, -1)
-points = PackedVector2Array(0, 0, 347, -1)
+position = Vector2(16.3899, -1.96702)
+scale = Vector2(1.20438, 0.065963)
+points = PackedVector2Array(0, 0, 144.505, -0.416443, 347, -1)
+width = 75.3
 default_color = Color(0.2, 0.4, 0.6, 1)
-joint_mode = 2
+texture_mode = 1
 end_cap_mode = 2
-
-[node name="CastingParticles2D" type="GPUParticles2D" parent="WandPivot/ShootingPoint/RayCast2D"]
-position = Vector2(61, 2)
-process_material = SubResource("ParticleProcessMaterial_clhyh")
-texture = ExtResource("5_ieb2m")
-lifetime = 0.1
 
 [node name="Wand" type="Sprite2D" parent="WandPivot"]
 position = Vector2(89, -21)

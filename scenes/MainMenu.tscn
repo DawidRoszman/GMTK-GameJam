@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5jkf63dc0vq0"]
+[gd_scene load_steps=4 format=3 uid="uid://y3n4mweeouqv"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_xu2uw"]
+[ext_resource type="Texture2D" uid="uid://bqfuxvw56clt3" path="res://assets/menu/bgmenu.png" id="2_2mbie"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo7vm"]
+bg_color = Color(0.215686, 0.168627, 0.168627, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
@@ -19,15 +21,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xu2uw")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Bgmenu" type="Sprite2D" parent="."]
+position = Vector2(958.5, 540)
+scale = Vector2(1.00833, 1.01481)
+texture = ExtResource("2_2mbie")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.141176, 0.137255, 0.258824, 1)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HFlowContainer" type="HFlowContainer" parent="CanvasLayer"]
 anchors_preset = 8
@@ -55,7 +54,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.776471, 0.756863, 0.733333, 1)
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_oo7vm")
 text = "Exit
@@ -66,7 +65,7 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.776471, 0.756863, 0.733333, 1)
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_oo7vm")
 text = "Start game"
