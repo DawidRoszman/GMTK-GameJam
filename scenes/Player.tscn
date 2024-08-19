@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://duqw54rorvbmn"]
+[gd_scene load_steps=13 format=3 uid="uid://duqw54rorvbmn"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6ocf8"]
 [ext_resource type="Script" path="res://scripts/shooting_point.gd" id="2_3e4xc"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cbqdn65vemno2" path="res://assets/wizard/slimewizardanimation/slimewizardjump1.png" id="7_frwpb"]
 [ext_resource type="Texture2D" uid="uid://caevsefeiartj" path="res://assets/wizard/slimewizardanimation/slimewizardjump2.png" id="8_popxj"]
 [ext_resource type="Texture2D" uid="uid://b6r1arbvmai5b" path="res://assets/wizard/slimewizardanimation/slimewizard2.png" id="9_d8vcy"]
+[ext_resource type="Texture2D" uid="uid://v3atb8vun30f" path="res://assets/pointers/glowing_circle.png" id="10_864sv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hm7n3"]
 animations = [{
@@ -64,6 +65,11 @@ script = ExtResource("1_6ocf8")
 [node name="WandPivot" type="Marker2D" parent="."]
 position = Vector2(-4, 1)
 script = ExtResource("2_iop0c")
+
+[node name="PointLight2D" type="PointLight2D" parent="WandPivot"]
+position = Vector2(167, -28)
+scale = Vector2(0.845381, 0.826693)
+texture = ExtResource("10_864sv")
 
 [node name="ShootingPoint" type="Marker2D" parent="WandPivot"]
 position = Vector2(169, -16)
