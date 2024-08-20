@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		var other = get_collider()
 		if other.is_in_group("player"):
 			return
-		if not other.is_in_group("enemy"):
+		if not other.is_in_group("movable"):
 			return
 		if is_using_first_spell:
 			other.increase(Vector2(scaling_multiplier*delta,scaling_multiplier*delta))

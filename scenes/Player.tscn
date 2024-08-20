@@ -99,7 +99,7 @@ unique_name_in_owner = true
 position = Vector2(10, -20)
 sprite_frames = SubResource("SpriteFrames_hm7n3")
 autoplay = "default"
-frame_progress = 0.686898
+frame_progress = 0.651924
 speed_scale = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

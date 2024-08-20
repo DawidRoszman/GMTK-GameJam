@@ -189,7 +189,7 @@ hue_variation_max = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_m6r5o"]
 radius = 135.059
 
-[node name="enemy" type="StaticBody2D" groups=["enemy"]]
+[node name="enemy" type="StaticBody2D" groups=["enemy", "movable"]]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_dej75")
