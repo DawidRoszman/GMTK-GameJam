@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
+@onready var character: AnimatedSprite2D = %Character
 
 const SPEED = 800
 const JUMP_POWER = -3400
@@ -12,20 +13,20 @@ const ACCELERATION = 2500
 const FRICTION = 2300
 
 const GRAVITY = 8000
-@onready var animated_sprite = $Character/AnimatedSprite2D #wizard for the animation
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
-		animated_sprite.play("jump") #wizard supposed to jump
+		character.play("jump") #wizard supposed to jump
 	var input_dir = input()
 	if input_dir != Vector2.ZERO:
+		character.play("walk")
 		if input_dir == Vector2.RIGHT:
-			$Character.flip_h = false
+			character.flip_h = false
 		if input_dir == Vector2.LEFT:
-			$Character.flip_h = true
+			character.flip_h = true
 		accelerate(input_dir, delta)
 	else:
-		animated_sprite.play("walk") #wizard supposed to walk
+		character.play("default")
 		add_friction(delta)
 	player_movement()
 	jump()
