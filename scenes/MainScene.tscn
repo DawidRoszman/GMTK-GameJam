@@ -233,5 +233,20 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "Exit"
 
+[node name="Label" type="Label" parent="."]
+offset_left = -1019.0
+offset_top = -970.0
+offset_right = -367.0
+offset_bottom = -483.0
+theme_override_font_sizes/font_size = 48
+text = "Controls:
+
+A - Move left
+D - Move right
+W or Spacebar - jump
+Left Mouse Button or E - fire
+1 - Switch to increase spell
+2 - Switch to decrease spell "
+
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Resume" to="CanvasLayer" method="_on_resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Exit" to="CanvasLayer" method="_on_exit_pressed"]
