@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bp5dybhj0q4yx"]
+[gd_scene load_steps=15 format=4 uid="uid://bp5dybhj0q4yx"]
 
 [ext_resource type="PackedScene" uid="uid://bipnl6q0p84pj" path="res://scenes/microbackground.tscn" id="1_4jn5c"]
 [ext_resource type="TileSet" uid="uid://dkstcqx8we5bi" path="res://tiles/Tileset.tres" id="1_j02ys"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://qjr622hmlp3d" path="res://assets/enemies/level1/red.png" id="6_otcwy"]
 [ext_resource type="PackedScene" uid="uid://bp1mxxvh1g5q" path="res://scenes/spikes.tscn" id="7_mhsts"]
 [ext_resource type="Texture2D" uid="uid://otr3ynauyi4j" path="res://assets/map/purpletiles.png" id="10_pd7en"]
+[ext_resource type="Script" path="res://scripts/movable.gd" id="11_j06rh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qinkb"]
 texture = ExtResource("10_pd7en")
@@ -43,6 +44,9 @@ physics_layer_0/collision_layer = 8
 physics_layer_0/collision_mask = 8
 sources/0 = SubResource("TileSetAtlasSource_qinkb")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_en55j"]
+size = Vector2(126, 127)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Hut" type="Sprite2D" parent="."]
@@ -60,7 +64,7 @@ tile_set = ExtResource("1_j02ys")
 [node name="enemies" type="Node" parent="."]
 
 [node name="enemy3" parent="enemies" instance=ExtResource("4_2p526")]
-position = Vector2(2902, -207)
+position = Vector2(2824, -923)
 scale = Vector2(0.6, 0.6)
 sprite = ExtResource("5_4ibje")
 
@@ -128,6 +132,12 @@ position = Vector2(6207, 513)
 [node name="Spikes4" parent="spikes" instance=ExtResource("7_mhsts")]
 position = Vector2(2769, 133)
 
+[node name="Spikes16" parent="spikes" instance=ExtResource("7_mhsts")]
+position = Vector2(2649, 133)
+
+[node name="Spikes17" parent="spikes" instance=ExtResource("7_mhsts")]
+position = Vector2(3150, 133)
+
 [node name="Spikes5" parent="spikes" instance=ExtResource("7_mhsts")]
 position = Vector2(10108, -124)
 
@@ -160,3 +170,20 @@ tile_set = SubResource("TileSet_k2qlp")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 color = Color(0.0980392, 0.211765, 0.243137, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["movable"]]
+position = Vector2(2886, -79)
+scale = Vector2(-0.026112, 1.09628)
+collision_layer = 12
+collision_mask = 4
+script = ExtResource("11_j06rh")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("10_pd7en")
+hframes = 4
+vframes = 5
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_en55j")

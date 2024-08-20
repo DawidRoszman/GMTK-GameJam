@@ -5,4 +5,4 @@ extends Marker2D
 func _process(delta: float) -> void:
 
 	look_at(get_global_mouse_position())
-	#rotation_degrees = clamp(rotation_degrees, -45, 45)
+	rotation_degrees = clamp(rotation_degrees, -45, 45)
