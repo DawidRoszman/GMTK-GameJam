@@ -5,6 +5,7 @@ const scaling_multiplier = 0.5
 var is_using_first_spell = true
 @export var first_spell_colour : Color
 @export var second_spell_colour : Color
+@onready var current_spell: Label = %CurrentSpell
 
 func _ready() -> void:
 	$Line2D.default_color = first_spell_colour
@@ -20,9 +21,11 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("select_spell_1"):
 		is_using_first_spell = true
 		$Line2D.default_color = first_spell_colour
+		current_spell.text = "Using increase spell"
 	if Input.is_action_just_pressed("select_spell_2"):
 		$Line2D.default_color = second_spell_colour
 		is_using_first_spell = false
+		current_spell.text = "Using decrease spell"
 
 func _physics_process(delta: float) -> void:
 	var cast_point = Vector2.ZERO
@@ -38,7 +41,6 @@ func _physics_process(delta: float) -> void:
 		else:
 			other.decrease(Vector2(scaling_multiplier*delta,scaling_multiplier*delta))
 		cast_point = to_local(get_collision_point())
-		print(cast_point)
 	
 	$Line2D.points[1] = cast_point
 

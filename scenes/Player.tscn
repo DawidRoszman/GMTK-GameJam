@@ -106,3 +106,18 @@ speed_scale = 0.2
 position = Vector2(33, 20)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_1cr1j")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CurrentSpell" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -375.0
+offset_top = 35.0
+offset_right = -32.0
+offset_bottom = 85.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 36
+text = "Using increase spell"

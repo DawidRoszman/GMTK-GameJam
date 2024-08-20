@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bp5dybhj0q4yx"]
+[gd_scene load_steps=16 format=4 uid="uid://bp5dybhj0q4yx"]
 
 [ext_resource type="PackedScene" uid="uid://bipnl6q0p84pj" path="res://scenes/microbackground.tscn" id="1_4jn5c"]
 [ext_resource type="TileSet" uid="uid://dkstcqx8we5bi" path="res://tiles/Tileset.tres" id="1_j02ys"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bp1mxxvh1g5q" path="res://scenes/spikes.tscn" id="7_mhsts"]
 [ext_resource type="Texture2D" uid="uid://otr3ynauyi4j" path="res://assets/map/purpletiles.png" id="10_pd7en"]
 [ext_resource type="Script" path="res://scripts/movable.gd" id="11_j06rh"]
+[ext_resource type="Script" path="res://scripts/in-game-menu.gd" id="12_m6qb1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qinkb"]
 texture = ExtResource("10_pd7en")
@@ -47,7 +48,7 @@ sources/0 = SubResource("TileSetAtlasSource_qinkb")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_en55j"]
 size = Vector2(126, 127)
 
-[node name="Node2D" type="Node2D"]
+[node name="MainScene" type="Node2D"]
 
 [node name="Hut" type="Sprite2D" parent="."]
 position = Vector2(-143, -219.658)
@@ -187,3 +188,50 @@ frame = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_en55j")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+script = ExtResource("12_m6qb1")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.360784, 0.219608, 0.427451, 0.733333)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Game Paused"
+
+[node name="Resume" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Resume"
+
+[node name="Exit" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Exit"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Resume" to="CanvasLayer" method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Exit" to="CanvasLayer" method="_on_exit_pressed"]
